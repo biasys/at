@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/xlab/at/pdu"
+	"github.com/biasys/at/pdu"
 )
 
 // Common errors.
