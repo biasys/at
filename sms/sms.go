@@ -122,13 +122,13 @@ type ValidityPeriod time.Duration
 // Octet return a one-byte representation of the validity period.
 func (v ValidityPeriod) Octet() byte {
 	switch d := time.Duration(v); {
-	case d/time.Minute < 5:
+	case d/time.Minute <= 5:
 		return 0x00
-	case d/time.Hour < 12:
+	case d/time.Hour <= 12:
 		return byte(d / (time.Minute * 5))
-	case d/time.Hour < 24:
-		return byte((d-d/time.Hour*12)/(time.Minute*30) + 143)
-	case d/time.Hour < 744:
+	case d/time.Hour <= 24:
+		return byte((d-time.Hour*12)/(time.Minute*30) + 143)
+	case d/time.Hour <= 744:
 		days := d / (time.Hour * 24)
 		return byte(days + 166)
 	default:

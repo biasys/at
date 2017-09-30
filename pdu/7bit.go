@@ -9,10 +9,10 @@ import (
 // Esc code.
 const Esc byte = 0x1B
 
-// Ctrl+Z code.
+// Sub Ctrl+Z code.
 const Sub byte = 0x1A
 
-// <CR> code.
+// CR <CR> code.
 const CR byte = 0x0D
 
 var crcr = []byte{CR, CR}

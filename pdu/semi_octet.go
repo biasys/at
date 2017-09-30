@@ -10,6 +10,9 @@ func EncodeSemi(chunks ...uint64) []byte {
 		var bucket []uint8
 		if c < 10 {
 			digits = append(digits, 0)
+			if c == 0 { // bug
+				digits = append(digits, 0)
+			}
 		}
 		for c > 0 {
 			d := c % 10
