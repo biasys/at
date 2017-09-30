@@ -144,7 +144,7 @@ func (v ValidityPeriod) Octet() byte {
 func (v *ValidityPeriod) ReadFrom(oct byte) {
 	switch n := time.Duration(oct); {
 	case n >= 0 && n <= 143:
-		*v = ValidityPeriod(5 * time.Minute * n)
+		*v = ValidityPeriod(5 * time.Minute * (n + 1))
 	case n >= 144 && n <= 167:
 		*v = ValidityPeriod(12*time.Hour + 30*time.Minute*(n-143))
 	case n >= 168 && n <= 196:
